@@ -38,17 +38,15 @@ class Stack(object):
 
     def size(self):
         node = self.top
-        if node is not None:
-            num_nodes = 1
-        else:
-            return 0
-        node = node.next
+        num_nodes = 0
         while node:
             num_nodes += 1
             node = node.next
         return num_nodes
 
     def peak(self):
+        if self.isEmpty():
+            raise Exception("Stack is empty")
         return self.top.value
 
     def __repr__(self):
